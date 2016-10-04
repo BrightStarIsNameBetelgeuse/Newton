@@ -402,6 +402,7 @@ h1 {
   font-weight: 200;
   font-size: 82px;
   line-height: 0.8em;
+  margin-bottom: 0.5em;
 }
 h3 {
   margin: 0;
@@ -467,11 +468,18 @@ p {
 .media-block .media-block__photo {
   background-size: cover;
 }
+.text-block.big-text {
+  max-width: 40%;
+}
 .description-block {
   position: relative;
-  padding-left: 42px;
-  max-width: 300px;
   margin-top: 3vh;
+  max-width: 500px;
+}
+.description-block .text-block {
+  max-width: 350px;
+  position: relative;
+  padding-left: 42px;
 }
 .description-block .big-text {
   position: absolute;
@@ -510,6 +518,7 @@ p {
   text-decoration: none;
   color: #d60447;
   font-size: 1.15em;
+  margin-top: 18px;
 }
 .newton-btn:hover {
   text-decoration: none;
@@ -660,18 +669,41 @@ p {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.newton__content .newton__item.about .newton-btn {
+  margin: 0;
+}
+.address-block {
+  position: relative;
+  color: black;
+}
+.address-block.active {
+  background-color: #d60447;
+  color: white;
+}
+.address-block.active .newton-btn {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
 .footer-list {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .footer-list .list-item {
   font-size: 1.4em;
   padding: 0 30px;
+  position: relative;
 }
 .footer-list .list-item::before {
   content: '—';
+  position: absolute;
+  left: 0;
 }
 .footer-list .list-item:first-child {
   font-size: 1em;

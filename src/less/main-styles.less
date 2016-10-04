@@ -33,6 +33,7 @@ h1 {
   font-weight: 200;
   font-size: 82px;
   line-height: 0.8em;
+  margin-bottom: 0.5em;
 }
 
 h3 {
@@ -101,11 +102,21 @@ p{
   }
 }
 
+.text-block {
+  &.big-text {
+    max-width: 40%;
+  }
+}
+
 .description-block {
   position: relative;
-  padding-left: 42px;
-  max-width: 300px;
   margin-top: 3vh;
+  max-width: 500px;
+  .text-block {
+    max-width: 350px;
+    position: relative;
+    padding-left: 42px;
+  }
   .big-text {
     position: absolute;
     top: 0;
@@ -123,6 +134,8 @@ p{
     line-height: 1.4em;
     p {
       margin: 0;
+    }
+    .text-block {
     }
   }
 }
@@ -144,6 +157,7 @@ p{
   text-decoration: none;
   color: @red;
   font-size: 1.15em;
+  margin-top: 18px;
   &:hover {
     text-decoration: none;
     color: @red;
@@ -287,20 +301,44 @@ p{
     &.about {
       display: flex;
       justify-content: center;
+      .newton-btn {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.address-cont {
+
+}
+
+.address-block {
+  position: relative;
+  color: black;
+  &.active {
+    background-color: @red;
+    color: white;
+    .newton-btn {
+      background-color: transparent;
+      color: white;
+      border-color: white;
     }
   }
 }
 
 .footer-list {
   display: flex;
+  align-items: center;
   .list-item {
     font-size: 1.4em;
     padding: 0 30px;
+    position: relative;
     &::before {
       content: '—';
+      position: absolute;
+      left: 0;
     }
     &:first-child {
-      //padding-left: 0;
       font-size: 1em;
       &::before {
         display: none;
