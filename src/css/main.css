@@ -503,6 +503,7 @@ p {
   position: absolute;
 }
 .newton-btn {
+  display: inline-block;
   border: 4px solid #d60447;
   padding: 6px 20px;
   cursor: pointer;
@@ -513,6 +514,10 @@ p {
 .newton-btn:hover {
   text-decoration: none;
   color: #d60447;
+}
+.newton-btn.gray-btn {
+  border-color: #cdcbcb;
+  color: gray;
 }
 .newton__container {
   width: 100%;
@@ -644,4 +649,33 @@ p {
 }
 .newton__content .newton__item.contacts {
   padding-left: 1%;
+}
+.newton__content .newton__item.about {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.footer-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.footer-list .list-item {
+  font-size: 1.4em;
+  padding: 0 30px;
+}
+.footer-list .list-item::before {
+  content: '—';
+}
+.footer-list .list-item:first-child {
+  font-size: 1em;
+}
+.footer-list .list-item:first-child::before {
+  display: none;
 }
