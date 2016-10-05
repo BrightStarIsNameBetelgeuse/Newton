@@ -1,7 +1,9 @@
 $(document).ready(function(){
-    setTimeout(function(){
-        var yMap = $('.contacts>ymaps');
-        $(yMap).width($('.contacts').width());;
-    }, 3000);
+    $('.newton__menu').on('mouseover', function(){
+        $(this).addClass('open');
+    });
 
+    /*$('.newton__menu').on('mouseout', function(){
+        $(this).removeClass('open');
+    });*/
 });

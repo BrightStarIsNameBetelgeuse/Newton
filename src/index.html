@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="" style="width: 1920px">
+<html class="no-js" lang="">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -11,7 +11,7 @@
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <!--<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>-->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
@@ -118,32 +118,32 @@
             </div>
             <div class="newton__item contacts">
                 <div id="map" style="width: 600px; height: 400px"></div>
-                <script type="text/javascript">
-                    ymaps.ready(init);
-                    var myMap;
+                <!--<script type="text/javascript">-->
+                <!--ymaps.ready(init);-->
+                <!--var myMap;-->
 
-                    function init(){
-                        myMap = new ymaps.Map("map", {
-                            center: [55.11, 61.17],
-                            zoom: 7
-                        }),
-                                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-                                    hintContent: 'Собственный значок метки',
-                                    balloonContent: 'Это красивая метка'
-                                }, {
-                                    // Опции.
-                                    // Необходимо указать данный тип макета.
-                                    iconLayout: 'default#image',
-                                    // Своё изображение иконки метки.
-                                    iconImageHref: 'imag/ico_geo_act.png',
-                                    // Размеры метки.
-                                    iconImageSize: [30, 42],
-                                    // Смещение левого верхнего угла иконки относительно
-                                    // её "ножки" (точки привязки).
-                                    iconImageOffset: [-3, -42]
-                                });
-                    }
-                </script>
+                <!--function init(){-->
+                <!--myMap = new ymaps.Map("map", {-->
+                <!--center: [55.11, 61.17],-->
+                <!--zoom: 7-->
+                <!--}),-->
+                <!--myPlacemark = new ymaps.Placemark(myMap.getCenter(), {-->
+                <!--hintContent: 'Собственный значок метки',-->
+                <!--balloonContent: 'Это красивая метка'-->
+                <!--}, {-->
+                <!--// Опции.-->
+                <!--// Необходимо указать данный тип макета.-->
+                <!--iconLayout: 'default#image',-->
+                <!--// Своё изображение иконки метки.-->
+                <!--iconImageHref: 'imag/ico_geo_act.png',-->
+                <!--// Размеры метки.-->
+                <!--iconImageSize: [30, 42],-->
+                <!--// Смещение левого верхнего угла иконки относительно-->
+                <!--// её "ножки" (точки привязки).-->
+                <!--iconImageOffset: [-3, -42]-->
+                <!--});-->
+                <!--}-->
+                <!--</script>-->
             </div>
             <div class="newton__item about">
                 <div class="footer-list selling">
@@ -163,6 +163,43 @@
     <div class="newton__menu">
         <div class="newton__menu-box">
             <div class="newton__logo logo-mini"></div>
+            <div class="vertical-text menu__vertical-text">
+                <span>M</span>
+                <span>E</span>
+                <span>N</span>
+                <span>U</span>
+            </div>
+            <ul class="newton__menu-list">
+                <li class="newton__menu-list-item"><span>О&nbsp;районе</span></li>
+                <li class="newton__menu-list-item"><span>квартиры</span></li>
+                <li class="newton__menu-list-item"><span>варианты&nbsp;оплаты</span></li>
+                <li class="newton__menu-list-item"><span>галерея</span></li>
+                <li class="newton__menu-list-item"><span>новости</span></li>
+                <li class="newton__menu-list-item"><span>о&nbsp;застройщике</span></li>
+                <li class="newton__menu-list-item"><span>контакты</span></li>
+            </ul>
+            <div class="discount-menu-block">
+                <div class="action-block">
+                    <div class="action-block-inner">
+                        <div class="action-inner-bg"></div>
+                        <div class="action-inner-bg bg-2"></div>
+                        <div class="action-block-inner-rel">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
+                                laoreet.</p>
+                            <div class="action-square">
+                                <p>В феврале 5% скидки на двушки</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vertical-text">
+                    <span>А</span>
+                    <span>К</span>
+                    <span>Ц</span>
+                    <span>И</span>
+                    <span>И</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

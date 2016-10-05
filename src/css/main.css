@@ -378,6 +378,11 @@ th {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+ol,
+ul {
+  padding: 0;
+  margin: 0;
+}
 html,
 body {
   width: 100%;
@@ -424,6 +429,11 @@ p {
 .vertical-text span {
   display: block;
   text-align: center;
+}
+.vertical-text.menu__vertical-text {
+  margin-top: 65px;
+  display: inline-block;
+  width: 100%;
 }
 .media-block {
   position: relative;
@@ -550,10 +560,156 @@ p {
   height: 100%;
   z-index: 1000;
   background-color: white;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 .newton__menu .newton__menu-box {
   height: 100%;
   padding: 42px 18px;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.newton__menu .newton__menu-list {
+  margin-top: 35px;
+  padding-left: 8px;
+  display: block;
+}
+.newton__menu .newton__menu-list .newton__menu-list-item {
+  display: block;
+  padding: 26px 0;
+  width: 100%;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+  color: #cdcbcb;
+  font-weight: 200;
+}
+.newton__menu .newton__menu-list .newton__menu-list-item::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #cdcbcb;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.newton__menu .newton__menu-list .newton__menu-list-item:hover::after {
+  width: 100%;
+}
+.newton__menu .menu__vertical-text {
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.newton__menu .discount-menu-block {
+  width: 100%;
+  text-align: center;
+  color: #cdcbcb;
+  margin-top: 45px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  position: relative;
+}
+.newton__menu .discount-menu-block .vertical-text {
+  display: inline-block;
+  padding: 15px 10px;
+  padding: 16.5px 11px;
+  border: 4px solid #cdcbcb;
+}
+.newton__menu .action-block {
+  display: none;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+}
+.newton__menu .action-block-inner {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 125%;
+  background-color: black;
+  color: white;
+}
+.newton__menu .action-block-inner p {
+  font-size: 0.8em;
+  line-height: 1.45em;
+}
+.newton__menu .action-inner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/action-bg.jpg);
+  background-size: cover;
+  opacity: 0.6;
+}
+.newton__menu .action-inner-bg.bg-2 {
+  background-image: url(../img/action-bg-2.jpg);
+  opacity: 0.5;
+}
+.newton__menu .action-block-inner-rel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  padding: 5.4em 1em 1em 2em;
+}
+.newton__menu .action-square {
+  position: absolute;
+  top: -25px;
+  left: 25px;
+  background-color: #260e06;
+  padding: 15px 18px;
+}
+.newton__menu .action-square p {
+  font-size: 1.4em;
+  line-height: 1.1em;
+}
+.newton__menu.open {
+  width: 280px;
+}
+.newton__menu.open .newton__menu-box {
+  padding: 42px 45px;
+  padding: 42px 10px;
+}
+.newton__menu.open .newton__logo {
+  background-image: url(../img/logo-menu.png);
+  height: 45px;
+}
+.newton__menu.open .newton__logo.logo-mini {
+  max-width: 100%;
+  width: 190px;
+  margin: 0 auto;
+}
+.newton__menu.open .menu__vertical-text {
+  margin-top: 50px;
+  width: auto;
+  padding-left: 35px;
+}
+.newton__menu.open .newton__menu-list {
+  padding-left: 0;
+}
+.newton__menu.open .newton__menu-list .newton__menu-list-item {
+  padding-left: 35px;
+}
+.newton__menu.open .discount-menu-block {
+  text-align: right;
+}
+.newton__menu.open .discount-menu-block .vertical-text {
+  margin: 0 10px;
+}
+.newton__menu.open .action-block {
+  display: block;
 }
 .newton__logo {
   background-image: url(../img/logo-menu.png);
@@ -568,6 +724,7 @@ p {
 .newton__logo.logo-mini {
   background-image: url(../img/logo_mini.png);
   width: 100%;
+  max-width: 50px;
   height: 30px;
 }
 .w_layer {
