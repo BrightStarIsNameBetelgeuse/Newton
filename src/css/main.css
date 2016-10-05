@@ -474,12 +474,16 @@ p {
 .description-block {
   position: relative;
   margin-top: 3vh;
+  margin-top: 30px;
   max-width: 500px;
 }
 .description-block .text-block {
   max-width: 350px;
   position: relative;
   padding-left: 42px;
+}
+.description-block .text-block.nomargin {
+  padding: 0;
 }
 .description-block .big-text {
   position: absolute;
@@ -497,7 +501,7 @@ p {
 }
 .description-block.small {
   font-size: 0.8em;
-  line-height: 1.4em;
+  line-height: 1.45em;
 }
 .description-block.small p {
   margin: 0;
@@ -505,7 +509,9 @@ p {
 .red-slider {
   background-color: #d60447;
   width: 10%;
+  max-width: 180px;
   min-height: 10px;
+  height: 50%;
   top: 0;
   left: 0;
   position: absolute;
@@ -575,8 +581,8 @@ p {
 }
 .newton__header {
   width: 100%;
-  height: 68%;
   height: 67.5vh;
+  height: 655px;
   padding-left: 20px;
   position: relative;
 }
@@ -589,6 +595,7 @@ p {
 .newton__header .newton__logo-box {
   position: absolute;
   top: 13vh;
+  top: 125px;
   left: 50%;
   margin-left: -212px;
   border: 10px solid rgba(255, 255, 255, 0.3);
@@ -603,6 +610,7 @@ p {
   width: 100%;
   height: auto;
   margin-top: -16vh;
+  margin-top: -155px;
 }
 .newton__content .newton__item {
   position: relative;
@@ -611,6 +619,8 @@ p {
 .newton__content .newton__item.title,
 .newton__content .newton__item.advantages {
   padding-left: 17vw;
+  padding-left: 327px;
+  margin-bottom: 175px;
 }
 .newton__content .newton__item.title {
   display: -webkit-box;
@@ -637,6 +647,17 @@ p {
       -ms-flex: 1;
           flex: 1;
 }
+.newton__content .newton__item.title .left-part p {
+  width: 87%;
+}
+.newton__content .newton__item.title .right-part {
+  margin-left: 27px;
+}
+.newton__content .newton__item.advantages .description-block {
+  margin-top: 0;
+  padding-top: 8vh;
+  padding-top: 60px;
+}
 .newton__content .newton__item.gallery {
   padding-left: 60px;
   display: -webkit-box;
@@ -660,6 +681,7 @@ p {
   padding-left: 1%;
 }
 .newton__content .newton__item.about {
+  margin: 55px 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -710,4 +732,17 @@ p {
 }
 .footer-list .list-item:first-child::before {
   display: none;
+}
+.more {
+  color: #d60447;
+  margin-top: 10px;
+}
+.more .smaler {
+  font-size: 0.8em;
+}
+@-ms-viewport {
+  width: 1920px;
+}
+@viewport {
+  width: 1920px;
 }

@@ -5,12 +5,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Newton</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1920, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
@@ -36,7 +37,7 @@
             <div class="newton__item title">
                 <div class="top-part">
                     <div class="left-part">
-                        <h1 class="giant-text">Для самых разборчивых жителей</h1>
+                        <h1 class="giant-text">Для самых<br> разборчивых<br> жителей</h1>
                     </div>
                     <div class="right-part">
                         <div class="media-block">
@@ -58,6 +59,7 @@
                             рассчитан на тех жителей, которые привыкли оценивать вещи в целом, вникая, подобно
                             исследователю, в каждую деталь.
                         </p>
+                        <p class="more">{ <span class="smaler">ПОДРОБНЕЙ</span> }</p>
                     </div>
                     <div class="right-part">
                         <div class="description-block small">
@@ -96,7 +98,7 @@
                 </div>
                 <div class="description-block">
                     <h1>Фотогалерея ньютон</h1>
-                    <div class="text-block">
+                    <div class="text-block nomargin">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
                             Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</p>
                         <a class="newton-btn">Смотреть все фото</a>
@@ -115,7 +117,33 @@
                 </div>
             </div>
             <div class="newton__item contacts">
-                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=0DMbVLy8YSw2sCqTunCqjnBBL2BxTX1i&amp;width=1280&amp;height=720&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+                <div id="map" style="width: 600px; height: 400px"></div>
+                <script type="text/javascript">
+                    ymaps.ready(init);
+                    var myMap;
+
+                    function init(){
+                        myMap = new ymaps.Map("map", {
+                            center: [55.11, 61.17],
+                            zoom: 7
+                        }),
+                                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                                    hintContent: 'Собственный значок метки',
+                                    balloonContent: 'Это красивая метка'
+                                }, {
+                                    // Опции.
+                                    // Необходимо указать данный тип макета.
+                                    iconLayout: 'default#image',
+                                    // Своё изображение иконки метки.
+                                    iconImageHref: 'imag/ico_geo_act.png',
+                                    // Размеры метки.
+                                    iconImageSize: [30, 42],
+                                    // Смещение левого верхнего угла иконки относительно
+                                    // её "ножки" (точки привязки).
+                                    iconImageOffset: [-3, -42]
+                                });
+                    }
+                </script>
             </div>
             <div class="newton__item about">
                 <div class="footer-list selling">
