@@ -260,6 +260,7 @@ p{
     display: flex;
     align-items: stretch;
     position: relative;
+    cursor: pointer;
     .vertical-text {
       display: inline-block;
       padding: 15px 10px;
@@ -306,19 +307,32 @@ p{
     height: 100%;
     text-align: left;
     padding: 5.4em 1em 1em 2em;
+    p{
+      position: absolute;
+      z-index: 1;
+    }
   }
 
   .action-square {
     position: absolute;
-    top: -25px;
-    left: 25px;
+    top: -17px;
+    left: -30px;
     background-color: #260e06;
     padding: 15px 18px;
+    width: 140px;
+    height: 120px;
     p{
       font-size: 1.4em;
       line-height: 1.1em;
+      position: relative;
+    }
+    .arrow {
+      position: absolute;
+      bottom: 10px;
+      left: 13px;
     }
   }
+
 
   &.open {
     width: 280px;
@@ -355,6 +369,22 @@ p{
       text-align: right;
       .vertical-text {
         margin: 0 10px;
+      }
+      &.hover {
+        .action-block-inner {
+          background-color: #260e06;
+        }
+        .action-inner-bg {
+          display: none;
+        }
+        .action-square {
+          display: none;
+        }
+        .vertical-text {
+          color: white;
+          border-color: #260e06;
+          background-color: #260e06;
+        }
       }
     }
 
@@ -435,7 +465,14 @@ p{
   margin-top: -155px;
   .newton__item {
     position: relative;
-    padding-right: 85px;
+    margin-right: 85px;
+
+    .newton__item-box {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
     &.title, &.advantages {
       padding-left: 17vw;
       padding-left: 327px;
@@ -462,10 +499,85 @@ p{
     }
 
     &.advantages {
+      position: relative;
+      height: 870px;
+      background-image: url(../img/adv_pole.png);
+      //background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: right top;
       .description-block {
         margin-top: 0;
         padding-top: 8vh;
         padding-top: 60px;
+        .text-block {
+          padding-left: 15%;
+        }
+        .big-text {
+          font-size: 9em;
+        }
+      }
+      .advantages-area {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .advantages-icon-block {
+        position: absolute;
+        text-align: center;
+        width: 242px;
+        .text-block {
+          position: absolute;
+          padding-top: 22px;
+          p{
+            opacity: 0;
+          }
+        }
+        &.quantity {
+          left: 336px;
+          bottom: 100px;
+          .advantages-icon {
+            background-image: url(../img/ico_kachestvo+.png);
+          }
+        }
+        &.safety {
+          left: 817px;
+          bottom: 220px;
+          .advantages-icon {
+            background-image: url(../img/ico_bezopasnost+.png);
+          }
+        }
+        &.standart {
+          right: 534px;
+          top: 168px;
+          .advantages-icon {
+            background-image: url(../img/ico_standart+.png);
+          }
+        }
+        &.plans {
+          right: 176px;
+          bottom: 102px;
+          .advantages-icon {
+            background-image: url(../img/ico_planerovki+.png);
+          }
+        }
+        &.builder {
+          right: 56px;
+          top: 48px;
+          .advantages-icon {
+            background-image: url(../img/ico_zactroishik+.png);
+          }
+        }
+        &:hover {
+          .text-block p {
+            opacity: 1;
+          }
+        }
+      }
+      .advantages-icon {
+        width: 242px;
+        height: 242px;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
     }
 
@@ -479,6 +591,10 @@ p{
       }
       .media-block {
         margin-bottom: 37px;
+      }
+      .description-block {
+        width: 25%;
+        margin-top: 0;
       }
     }
     &.contacts {

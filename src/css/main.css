@@ -619,6 +619,7 @@ p {
       -ms-flex-align: stretch;
           align-items: stretch;
   position: relative;
+  cursor: pointer;
 }
 .newton__menu .discount-menu-block .vertical-text {
   display: inline-block;
@@ -665,16 +666,28 @@ p {
   text-align: left;
   padding: 5.4em 1em 1em 2em;
 }
+.newton__menu .action-block-inner-rel p {
+  position: absolute;
+  z-index: 1;
+}
 .newton__menu .action-square {
   position: absolute;
-  top: -25px;
-  left: 25px;
+  top: -17px;
+  left: -30px;
   background-color: #260e06;
   padding: 15px 18px;
+  width: 140px;
+  height: 120px;
 }
 .newton__menu .action-square p {
   font-size: 1.4em;
   line-height: 1.1em;
+  position: relative;
+}
+.newton__menu .action-square .arrow {
+  position: absolute;
+  bottom: 10px;
+  left: 13px;
 }
 .newton__menu.open {
   width: 280px;
@@ -709,6 +722,20 @@ p {
 }
 .newton__menu.open .discount-menu-block .vertical-text {
   margin: 0 10px;
+}
+.newton__menu.open .discount-menu-block.hover .action-block-inner {
+  background-color: #260e06;
+}
+.newton__menu.open .discount-menu-block.hover .action-inner-bg {
+  display: none;
+}
+.newton__menu.open .discount-menu-block.hover .action-square {
+  display: none;
+}
+.newton__menu.open .discount-menu-block.hover .vertical-text {
+  color: white;
+  border-color: #260e06;
+  background-color: #260e06;
 }
 .newton__menu.open .action-block {
   display: block;
@@ -773,7 +800,12 @@ p {
 }
 .newton__content .newton__item {
   position: relative;
-  padding-right: 85px;
+  margin-right: 85px;
+}
+.newton__content .newton__item .newton__item-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 .newton__content .newton__item.title,
 .newton__content .newton__item.advantages {
@@ -812,10 +844,84 @@ p {
 .newton__content .newton__item.title .right-part {
   margin-left: 27px;
 }
+.newton__content .newton__item.advantages {
+  position: relative;
+  height: 870px;
+  background-image: url(../img/adv_pole.png);
+  background-repeat: no-repeat;
+  background-position: right top;
+}
 .newton__content .newton__item.advantages .description-block {
   margin-top: 0;
   padding-top: 8vh;
   padding-top: 60px;
+}
+.newton__content .newton__item.advantages .description-block .text-block {
+  padding-left: 15%;
+}
+.newton__content .newton__item.advantages .description-block .big-text {
+  font-size: 9em;
+}
+.newton__content .newton__item.advantages .advantages-area {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.newton__content .newton__item.advantages .advantages-icon-block {
+  position: absolute;
+  text-align: center;
+  width: 242px;
+}
+.newton__content .newton__item.advantages .advantages-icon-block .text-block {
+  position: absolute;
+  padding-top: 22px;
+}
+.newton__content .newton__item.advantages .advantages-icon-block .text-block p {
+  opacity: 0;
+}
+.newton__content .newton__item.advantages .advantages-icon-block.quantity {
+  left: 336px;
+  bottom: 100px;
+}
+.newton__content .newton__item.advantages .advantages-icon-block.quantity .advantages-icon {
+  background-image: url(../img/ico_kachestvo+.png);
+}
+.newton__content .newton__item.advantages .advantages-icon-block.safety {
+  left: 817px;
+  bottom: 220px;
+}
+.newton__content .newton__item.advantages .advantages-icon-block.safety .advantages-icon {
+  background-image: url(../img/ico_bezopasnost+.png);
+}
+.newton__content .newton__item.advantages .advantages-icon-block.standart {
+  right: 534px;
+  top: 168px;
+}
+.newton__content .newton__item.advantages .advantages-icon-block.standart .advantages-icon {
+  background-image: url(../img/ico_standart+.png);
+}
+.newton__content .newton__item.advantages .advantages-icon-block.plans {
+  right: 176px;
+  bottom: 102px;
+}
+.newton__content .newton__item.advantages .advantages-icon-block.plans .advantages-icon {
+  background-image: url(../img/ico_planerovki+.png);
+}
+.newton__content .newton__item.advantages .advantages-icon-block.builder {
+  right: 56px;
+  top: 48px;
+}
+.newton__content .newton__item.advantages .advantages-icon-block.builder .advantages-icon {
+  background-image: url(../img/ico_zactroishik+.png);
+}
+.newton__content .newton__item.advantages .advantages-icon-block:hover .text-block p {
+  opacity: 1;
+}
+.newton__content .newton__item.advantages .advantages-icon {
+  width: 242px;
+  height: 242px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .newton__content .newton__item.gallery {
   padding-left: 60px;
@@ -835,6 +941,10 @@ p {
 }
 .newton__content .newton__item.gallery .media-block {
   margin-bottom: 37px;
+}
+.newton__content .newton__item.gallery .description-block {
+  width: 25%;
+  margin-top: 0;
 }
 .newton__content .newton__item.contacts {
   padding-left: 1%;
@@ -904,6 +1014,20 @@ p {
 }
 @viewport {
   width: 1920px;
+}
+@media screen and (max-width: 1920px) {
+  @-ms-viewport {
+    width: 1900px;
+  }
+  @-webkit-viewport {
+    width: 1900px;
+  }
+  @-moz-viewport {
+    width: 1900px;
+  }
+  @viewport {
+    width: 1900px;
+  }
 }
 @media screen and (max-width: 1400px) {
   .giant-text {
