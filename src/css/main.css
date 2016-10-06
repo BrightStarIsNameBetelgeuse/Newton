@@ -455,6 +455,7 @@ p {
   margin-left: 35px;
   cursor: pointer;
   background: no-repeat;
+  background-size: cover;
 }
 .media-block .media-block__video {
   position: relative;
@@ -679,8 +680,8 @@ p {
   width: 280px;
 }
 .newton__menu.open .newton__menu-box {
-  padding: 42px 45px;
-  padding: 42px 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .newton__menu.open .newton__logo {
   background-image: url(../img/logo-menu.png);
@@ -690,9 +691,10 @@ p {
   max-width: 100%;
   width: 190px;
   margin: 0 auto;
+  margin-bottom: -15px;
 }
 .newton__menu.open .menu__vertical-text {
-  margin-top: 50px;
+  margin-top: 65px;
   width: auto;
   padding-left: 35px;
 }
@@ -902,4 +904,41 @@ p {
 }
 @viewport {
   width: 1920px;
+}
+@media screen and (max-width: 1400px) {
+  .giant-text {
+    font-size: 6em;
+  }
+  h1 {
+    font-size: 60px;
+  }
+  .newton__menu .newton__menu-box {
+    padding: 20px 18px;
+  }
+  .newton__menu.open .menu__vertical-text,
+  .vertical-text.menu__vertical-text {
+    margin-top: 30px;
+  }
+  .newton__menu .newton__menu-list {
+    margin-top: 10px;
+    padding-left: 0;
+  }
+  .newton__menu .newton__menu-list .newton__menu-list-item {
+    padding: 15px 0;
+  }
+  .newton__menu .discount-menu-block {
+    margin-top: 0;
+  }
+  .vertical-text {
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
+  .newton__menu .discount-menu-block .vertical-text {
+    padding: 10px 8px;
+  }
+  .media-block .media-block__video,
+  .media-block .media-block__photo {
+    width: 380px;
+    height: 230px;
+  }
 }

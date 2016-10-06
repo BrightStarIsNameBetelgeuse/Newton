@@ -3,7 +3,7 @@ $(document).ready(function(){
         $(this).addClass('open');
     });
 
-    /*$('.newton__menu').on('mouseout', function(){
+    $('.newton__menu').on('mouseout', function(){
         $(this).removeClass('open');
-    });*/
+    });
 });
