@@ -7,14 +7,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=1920, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/main.css">
-    <!--<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>-->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="../build/bundle.js"></script>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -41,7 +37,8 @@
                     </div>
                     <div class="right-part">
                         <div class="media-block">
-                            <div class="vertical-text"><span>O</span><span>N</span>L<span>I</span>N<span>E</span><span>&nbsp;</span><span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
+                            <div class="vertical-text">
+                                <span>O</span><span>N</span>L<span>I</span>N<span>E</span><span>&nbsp;</span><span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
                             </div>
                             <div class="media-block__video" style="background-image: url(img/1.png)"></div>
                         </div>
@@ -54,12 +51,14 @@
                             Новый проект строительной компании «Легион». В нём всё продумано и выверено до мелочей,
                             поскольку «Ньютон» — это чистой воды следствие комплексного, математического подхода к
                             строительству. При проектировании использован рациональный подход к освоению городского
-                            пространства: в комплексе совмещаются жилье, общественные помещения, подземные автопарковки,
-                            благоустроенные дворы со спортивными сооружениями и детскими площадками. Поэтому ЖК «Ньютон»
+                            пространства: в комплексе совмещаются жилье, общественные помещения, подземные
+                            автопарковки,
+                            благоустроенные дворы со спортивными сооружениями и детскими площадками. Поэтому ЖК
+                            «Ньютон»
                             рассчитан на тех жителей, которые привыкли оценивать вещи в целом, вникая, подобно
                             исследователю, в каждую деталь.
                         </p>
-                        <p class="more">{ <span class="smaler">ПОДРОБНЕЙ</span> }</p>
+                        <a class="more">{ <span class="smaler">ПОДРОБНЕЙ</span> }</a>
                     </div>
                     <div class="right-part">
                         <div class="description-block small">
@@ -136,7 +135,8 @@
                     <div class="media-block__photo" style="background-image: url(img/1.png)"></div>
                 </div>
                 <div class="media-block">
-                    <div class="vertical-text"><span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
+                    <div class="vertical-text">
+                        <span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
                     </div>
                     <div class="media-block__video" style="background-image: url(img/2.png)"></div>
                 </div>
@@ -149,7 +149,8 @@
                     </div>
                 </div>
                 <div class="media-block">
-                    <div class="vertical-text"><span>С</span><span>Т</span>Р<span>О</span>Й<span>К</span><span>А</span>
+                    <div class="vertical-text">
+                        <span>С</span><span>Т</span>Р<span>О</span>Й<span>К</span><span>А</span>
                     </div>
                     <div class="media-block__photo" style="background-image: url(img/3.png)"></div>
                 </div>
@@ -161,34 +162,87 @@
                 </div>
             </div>
             <div class="newton__item contacts">
-                <!--<div id="map" style="width: 600px; height: 400px"></div>-->
-                <!--<script type="text/javascript">-->
-                <!--ymaps.ready(init);-->
-                <!--var myMap;-->
+                <div id="map" style="width: 100%; height: 800px"></div>
+                <script type="text/javascript">
+                    ymaps.ready(init);
+                    var myMap;
 
-                <!--function init(){-->
-                <!--myMap = new ymaps.Map("map", {-->
-                <!--center: [55.11, 61.17],-->
-                <!--zoom: 7-->
-                <!--}),-->
-                <!--myPlacemark = new ymaps.Placemark(myMap.getCenter(), {-->
-                <!--hintContent: 'Собственный значок метки',-->
-                <!--balloonContent: 'Это красивая метка'-->
-                <!--}, {-->
-                <!--// Опции.-->
-                <!--// Необходимо указать данный тип макета.-->
-                <!--iconLayout: 'default#image',-->
-                <!--// Своё изображение иконки метки.-->
-                <!--iconImageHref: 'imag/ico_geo_act.png',-->
-                <!--// Размеры метки.-->
-                <!--iconImageSize: [30, 42],-->
-                <!--// Смещение левого верхнего угла иконки относительно-->
-                <!--// её "ножки" (точки привязки).-->
-                <!--iconImageOffset: [-3, -42]-->
-                <!--});-->
-                <!--}-->
-                <!--</script>-->
-                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=0DMbVLy8YSw2sCqTunCqjnBBL2BxTX1i&amp;width=1280&amp;height=720&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+                    function init() {
+                        myMap = new ymaps.Map('map', {
+                            center: [55.177815133547035, 61.305614631780614],
+                            zoom: 14
+                        });
+                        myPlacemark = new ymaps.Placemark([55.19215550354389, 61.28244034589192], {
+                            hintContent: 'Собственный значок метки'
+                        }, {
+                            // Опции.
+                            // Своё изображение иконки метки.
+                            iconImageHref: '/img/ico_geo_act.png',
+                            // Размеры метки.
+                            iconImageSize: [30, 42],
+                            // Смещение левого верхнего угла иконки относительно
+                            // её "ножки" (точки привязки).
+                            iconImageOffset: [-3, -42]
+                        });
+                    }
+                </script>
+                <!--<script type="text/javascript" charset="utf-8" async-->
+                <!--src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=0DMbVLy8YSw2sCqTunCqjnBBL2BxTX1i&amp;width=1280&amp;height=720&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>-->
+                <div class="addresses">
+                    <div class="address-cont active">
+                        <div class="address-block">
+                            <p><span class="left-text">Адрес</span><span>Челябинск, ул. 40-летия Победы, 3</span>
+                            </p>
+                            <div class="text-group">
+                                <p><span class="left-text">режим</span>
+                                    <span>Вт-пт с 9:00 до 19:00 Сб</span></p>
+                                <p><span class="left-text">работы</span>
+                                    <span>c 9:00 до 13:00 вс-пн выходной</span></p>
+                            </div>
+                            <p><span class="left-text">телефон</span><span>+7 (351) 77-88-700</span></p>
+                            <p><span class="left-text">e-mail</span><span>sales@legion74.ru</span></p>
+                            <a class="newton-btn">Больше о ЖК «НЬЮТОН»</a>
+                        </div>
+                        <div class="vertical-text">
+                            <span>Ж</span>
+                            <span>К</span>
+                            <span>&nbsp;</span>
+                            <span>Н</span>
+                            <span>Ь</span>
+                            <span>Ю</span>
+                            <span>Т</span>
+                            <span>О</span>
+                            <span>Н</span>
+                        </div>
+                    </div>
+                    <div class="address-cont">
+                        <div class="address-block">
+                            <h3>Отдел продаж СК</h3>
+                            <p><span class="left-text">Адрес</span><span>Челябинск, ул. 40-летия Победы, 3</span>
+                            </p>
+                            <div class="text-group">
+                                <p><span class="left-text">режим</span>
+                                    <span>Вт-пт с 9:00 до 19:00 Сб</span></p>
+                                <p><span class="left-text">работы</span>
+                                    <span>c 9:00 до 13:00 вс-пн выходной</span></p>
+                            </div>
+                            <p><span class="left-text">телефон</span><span>+7 (351) 77-88-700</span></p>
+                            <p><span class="left-text">e-mail</span><span>sales@legion74.ru</span></p>
+                            <a class="newton-btn">Больше о застройщике</a>
+                        </div>
+                        <div class="vertical-text">
+                            <span>С</span>
+                            <span>К</span>
+                            <span>&nbsp;</span>
+                            <span>Л</span>
+                            <span>Е</span>
+                            <span>Г</span>
+                            <span>И</span>
+                            <span>О</span>
+                            <span>Н</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="newton__item about">
                 <div class="footer-list selling">
@@ -204,49 +258,82 @@
                 <a class="newton-btn gray-btn">Проектные декларации</a>
             </div>
         </div>
-    </div>
-    <div class="newton__menu">
-        <div class="newton__menu-box">
-            <div class="newton__logo logo-mini"></div>
-            <div class="vertical-text menu__vertical-text">
-                <span>M</span>
-                <span>E</span>
-                <span>N</span>
-                <span>U</span>
-            </div>
-            <ul class="newton__menu-list">
-                <li class="newton__menu-list-item"><span>О&nbsp;районе</span></li>
-                <li class="newton__menu-list-item"><span>квартиры</span></li>
-                <li class="newton__menu-list-item"><span>варианты&nbsp;оплаты</span></li>
-                <li class="newton__menu-list-item"><span>галерея</span></li>
-                <li class="newton__menu-list-item"><span>новости</span></li>
-                <li class="newton__menu-list-item"><span>о&nbsp;застройщике</span></li>
-                <li class="newton__menu-list-item"><span>контакты</span></li>
-            </ul>
-            <div class="discount-menu-block">
-                <div class="action-block">
-                    <div class="action-block-inner">
-                        <div class="action-inner-bg"></div>
-                        <div class="action-inner-bg bg-2"></div>
-                        <div class="action-block-inner-rel" id="action-block">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
-                                laoreet.</p>
-                            <div class="action-square">
-                                <p>В феврале 5% скидки на двушки</p>
-                                <p class="arrow">&larr;</p>
+        <div class="newton__menu">
+            <div class="newton__menu-box">
+                <div class="newton__logo logo-mini"></div>
+                <div class="vertical-text menu__vertical-text">
+                    <span>M</span>
+                    <span>E</span>
+                    <span>N</span>
+                    <span>U</span>
+                </div>
+                <ul class="newton__menu-list">
+                    <li class="newton__menu-list-item"><span>О&nbsp;районе</span></li>
+                    <li class="newton__menu-list-item"><span>квартиры</span></li>
+                    <li class="newton__menu-list-item"><span>варианты&nbsp;оплаты</span></li>
+                    <li class="newton__menu-list-item"><span>галерея</span></li>
+                    <li class="newton__menu-list-item"><span>новости</span></li>
+                    <li class="newton__menu-list-item"><span>о&nbsp;застройщике</span></li>
+                    <li class="newton__menu-list-item"><span>контакты</span></li>
+                </ul>
+                <div class="discount-menu-block">
+                    <div class="action-block">
+                        <div class="action-block-inner">
+                            <div class="action-inner-bg"></div>
+                            <div class="action-inner-bg bg-2"></div>
+                            <div class="action-block-inner-rel" id="action-block">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
+                                    laoreet.</p>
+                                <div class="action-square">
+                                    <p>В феврале 5% скидки на двушки</p>
+                                    <p class="arrow">&larr;</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="vertical-text action__vertical-text">
-                    <span>А</span>
-                    <span>К</span>
-                    <span>Ц</span>
-                    <span>И</span>
-                    <span>И</span>
+                    <div class="vertical-text action__vertical-text">
+                        <span>А</span>
+                        <span>К</span>
+                        <span>Ц</span>
+                        <span>И</span>
+                        <span>И</span>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="newton__menu-submenu">
+
+            <div class="newton__menu-box">
+                <img class="submenu-img" src="img/submenu-img.png"/>
+                <div class="submenu-text">
+                    <div class="vertical-text small">
+                        <span>а</span>
+                        <span>к</span>
+                        <span>ц</span>
+                        <span>и</span>
+                        <span>я</span>
+                        <span>&nbsp;</span>
+                        <span>ф</span>
+                        <span>е</span>
+                        <span>в</span>
+                        <span>р</span>
+                        <span>а</span>
+                        <span>л</span>
+                        <span>ь</span>
+                    </div>
+                    <div class="submenu-text-box">
+                        <h3>5% скидки<br>на двушки</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <a class="more">{ <span class="smaler">ПОДРОБНЕЙ</span> }</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="submenu-cover"></div>
     </div>
 </div>
 </body>

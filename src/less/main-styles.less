@@ -6,10 +6,10 @@
   box-sizing: border-box;
 }
 
-ol,ul {
+ol, ul {
   padding: 0;
   margin: 0;
-  li{
+  li {
 
   }
 }
@@ -50,7 +50,7 @@ h3 {
   margin-bottom: 0.6em;
 }
 
-p{
+p {
   margin: 0;
 }
 
@@ -71,6 +71,10 @@ p{
     margin-top: 65px;
     display: inline-block;
     width: 100%;
+  }
+  &.small {
+    font-size: 12px;
+    line-height: 13px;
   }
 }
 
@@ -176,7 +180,7 @@ p{
   cursor: pointer;
   text-decoration: none;
   color: @red;
-  font-size: 1.15em;
+  font-size: 12px;
   margin-top: 18px;
   &:hover {
     text-decoration: none;
@@ -207,12 +211,12 @@ p{
   height: 100%;
   z-index: 1000;
   background-color: white;
-  transition: all 0.3s ease-out;
+  transition: width 0.3s ease-out;
 
   .newton__menu-box {
     height: 100%;
     padding: 42px 18px;
-    transition: all 1s ease-out;
+    //transition: all 1s ease-out;
   }
 
   .newton__menu-list {
@@ -249,7 +253,7 @@ p{
   }
 
   .menu__vertical-text {
-    transition: all 1s ease-out;
+    //transition: all 1s ease-out;
   }
 
   .discount-menu-block {
@@ -282,7 +286,7 @@ p{
     width: 125%;
     background-color: black;
     color: white;
-    p{
+    p {
       font-size: 0.8em;
       line-height: 1.45em;
     }
@@ -307,7 +311,7 @@ p{
     height: 100%;
     text-align: left;
     padding: 5.4em 1em 1em 2em;
-    p{
+    p {
       position: absolute;
       z-index: 1;
     }
@@ -321,7 +325,7 @@ p{
     padding: 15px 18px;
     width: 140px;
     height: 120px;
-    p{
+    p {
       font-size: 1.4em;
       line-height: 1.1em;
       position: relative;
@@ -332,7 +336,6 @@ p{
       left: 13px;
     }
   }
-
 
   &.open {
     width: 280px;
@@ -392,6 +395,90 @@ p{
       display: block;
     }
   }
+
+  &.submenu {
+    .discount-menu-block {
+      .action-block-inner {
+        background-color: #260e06;
+      }
+      .action-inner-bg {
+        display: none;
+      }
+      .action-square {
+        display: none;
+      }
+      .vertical-text {
+        color: white;
+        border-color: #260e06;
+        background-color: #260e06;
+      }
+    }
+  }
+}
+
+.newton__menu-submenu {
+  width: 370px;
+  height: 100%;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  right: -370px;
+  z-index: 2;
+  transition: all 0.8s ease-out;
+
+  .newton__menu-box {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .submenu-img {
+    margin-top: 17%;
+    margin-bottom: 38px;
+    display: block;
+  }
+
+  .submenu-text {
+    padding-left: 40px;
+    margin-left: 20px;
+    position: relative;
+  }
+
+  .vertical-text {
+    position: absolute;
+    left: 0;
+    color: @gray;
+  }
+  h3 {
+    font-size: 1.6em;
+  }
+
+  &.open {
+    display: block;
+    right: 280px;
+
+    .newton__menu-box {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+  }
+}
+
+.submenu-cover {
+  position: fixed;
+  top: 0;
+  right: 650px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(0,0,0,0);
+  transition: all 0.8s ease-out;
+
+  &.open {
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1;
+  }
 }
 
 .newton__logo {
@@ -446,7 +533,7 @@ p{
     top: 125px;
     left: 50%;
     margin-left: -212px;
-    border: @border-width solid rgba(255,255,255,0.3);
+    border: @border-width solid rgba(255, 255, 255, 0.3);
     width: @width;
     height: @height;
 
@@ -528,7 +615,7 @@ p{
         .text-block {
           position: absolute;
           padding-top: 22px;
-          p{
+          p {
             opacity: 0;
           }
         }
@@ -584,9 +671,9 @@ p{
     &.gallery {
       padding-left: 60px;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       flex-wrap: wrap;
-      &>div {
+      & > div {
         width: 33.3%;
       }
       .media-block {
@@ -611,20 +698,87 @@ p{
   }
 }
 
-.address-cont {
+/*address blocks*/
 
+.addresses {
+  margin-top: -21%;
+  margin-left: 15%;
+}
+
+.address-cont {
+  display: block;
+  position: relative;
+  width: 515px;
+  margin-bottom: 33px;
+
+  &.active {
+    .address-block {
+      background-color: @red;
+      color: white;
+      .newton-btn {
+        background-color: transparent;
+        color: white;
+        border-color: white;
+      }
+      .left-text {
+        color: #260e06;
+      }
+    }
+  }
+
+  .newton-btn {
+    padding: 3px 35px;
+  }
+
+  .vertical-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 27px;
+  }
 }
 
 .address-block {
-  position: relative;
+  display: inline-block;
   color: black;
-  &.active {
-    background-color: @red;
-    color: white;
-    .newton-btn {
-      background-color: transparent;
-      color: white;
-      border-color: white;
+  background-color: white;
+  font-size: 14.5px;
+  line-height: 21px;
+  margin-left: 35px;
+  padding: 37px 0;
+  padding-left: 13%;
+  width: 480px;
+
+  .left-text {
+    text-align: right;
+    color: @gray;
+    width: 70px;
+    padding-right: 16px;
+  }
+
+  h3 {
+    padding-left: 70px;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  p {
+    margin-bottom: 9px;
+    display: flex;
+  }
+
+  .newton-btn {
+    margin-top: 20px;
+    margin-left: 70px;
+  }
+
+  .text-group {
+    margin-bottom: 9px;
+    p {
+      display: block;
+      margin: 0;
     }
   }
 }
@@ -654,6 +808,7 @@ p{
 }
 
 .more {
+  display: inline-block;
   color: @red;
   margin-top: 10px;
   .smaler {
