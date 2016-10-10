@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="../node_modules/aos/dist/aos.css" />
 
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/modernizr.custom.js"></script>
     <script src="js/classie.js"></script>
@@ -153,7 +152,7 @@
                     <div class="vertical-text"><span>Н</span><span>Ь</span>Ю<span>Т</span>О<span>Н</span>
                     </div>
                     <div class="newton__vertical-text-block--cont media-block__photo">
-                        <img src="img/1.png" data-aos="slide-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
+                        <img src="img/1.png" data-aos="slide-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
                     </div>
                     <div class="addition-block">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -163,12 +162,12 @@
                             sapien nunc eget.</p>
                     </div>
                 </div>
-                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="600" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
                     <div class="vertical-text">
                         <span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
                     </div>
                     <div class="newton__vertical-text-block--cont media-block__video">
-                        <img src="img/2.png" data-aos="slide-right" data-aos-offset="800" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
+                        <img src="img/2.png" data-aos="slide-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
                     </div>
                     <div class="addition-block">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -191,7 +190,7 @@
                         <span>С</span><span>Т</span>Р<span>О</span>Й<span>К</span><span>А</span>
                     </div>
                     <div class="newton__vertical-text-block--cont media-block__photo">
-                        <img src="img/3.png" data-aos="slide-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
+                        <img src="img/3.png" data-aos="slide-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
                     </div>
                     <div class="addition-block">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -201,12 +200,12 @@
                             sapien nunc eget.</p>
                     </div>
                 </div>
-                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
                     <div class="vertical-text">
                         <span>И</span><span>Н</span>Т<span>Е</span>Р<span>Ь</span><span>Е</span><span>Р</span><span>Ы</span>
                     </div>
                     <div class="newton__vertical-text-block--cont media-block__photo">
-                        <img src="img/4.png" data-aos="slide-right" data-aos-offset="600" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
+                        <img src="img/4.png" data-aos="slide-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
                     </div>
                     <div class="addition-block">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -219,61 +218,89 @@
             </div>
             <div class="newton__item contacts">
                 <div id="map" style="width: 100%; max-height: 800px; height: 90vh"></div>
-                <script type="text/javascript">
-                    ymaps.ready(init);
-                    var myMap;
+                <script>
+                    var map;
+                    function initialize() {
 
-                    function init() {
-                        myMap = new ymaps.Map('map', {
-                            //center: [55.182266597654916, 61.29917798413087],
-                            center: [55.16920006333557, 61.28235516918946],
+
+                        var customMapType = new google.maps.StyledMapType([
+                            {
+                                stylers: [
+                                    { hue: "#000000" },
+                                    { saturation: -255 },
+                                    { gamma: 2 },
+                                    { lightness: 0 }
+                                ]
+                            },
+                            {
+                                elementType: 'labels',
+                                stylers: [{visibility: 'on'}]
+                            },
+
+
+                        ], {
+                            name: 'Custom Style'
+                        });
+                        var customMapTypeId = 'custom_style';
+
+                        map = new google.maps.Map(document.getElementById('map'), {
                             zoom: 14,
-                            behaviours: []
+                            center: {lat: 55.17872412595775, lng: 61.29276521742152},
+                            disableDefaultUI: true,
+                            mapTypeControlOptions: {
+                                mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
+                            }
                         });
+                        map.mapTypes.set(customMapTypeId, customMapType);
+                        map.setMapTypeId(customMapTypeId);
+                        var image = '/c/img/marker.png';
 
-                        var myPlacemark1 = new ymaps.Placemark([55.16920006333557, 61.28235516918946], {
-                            hintContent: 'ЖК Ньютон'
-                        }, {
-                            // Опции.
-                            // Своё изображение иконки метки.
-                            iconImageHref: '/img/ico_geo_act.png',
-                            // Размеры метки.
-                            iconImageSize: [30, 42],
-                            // Смещение левого верхнего угла иконки относительно
-                            // её "ножки" (точки привязки).
-                            iconImageOffset: [-3, -42]
+                        var iconBase = 'img/maps/';
+                        var icons = {
+                            active: {
+                                icon: iconBase + 'ico_geo_act.png'
+                            },
+                            inactive: {
+                                icon: iconBase + 'ico_geo_inact.png'
+                            }
+                        };
+
+                        function addMarker(feature) {
+                            var marker = new google.maps.Marker({
+                                position: feature.position,
+                                icon: icons[feature.type].icon,
+                                map: map
+                            });
+                        }
+
+                        var features = [
+                            {
+                                position: new google.maps.LatLng(55.1925709, 61.2842103),
+                                type: 'inactive'
+                            }, {
+                                position: new google.maps.LatLng(55.16947795784424, 61.282204270845675),
+                                type: 'active'
+                            }
+                        ];
+
+                        for (var i = 0, feature; feature = features[i]; i++) {
+                            addMarker(feature);
+                        }
+
+
+                        /*var marker = new google.maps.Marker({
+                            map: map, position: {lat: 55.15415, lng: 61.3945},
+                            icon: image,
+                            title: 'Sitko.ru'
                         });
-
-                        var myPlacemark2 = new ymaps.Placemark([55.19253014229876, 61.28338513745119], {
-                            hintContent: 'СК Легион'
-                        }, {
-                            // Опции.
-                            // Своё изображение иконки метки.
-                            iconImageHref: '/img/ico_geo_inact.png',
-                            // Размеры метки.
-                            iconImageSize: [30, 42],
-                            // Смещение левого верхнего угла иконки относительно
-                            // её "ножки" (точки привязки).
-                            iconImageOffset: [-3, -42]
-                        });
-
-                        myMap.controls
-                                .remove('mapTools')
-                                .remove('scaleLine')
-                                .remove('searchControl')
-                                .remove('trafficControl')
-                                .remove('zoomControl')
-                                .remove('smallZoomControl')
-                                .remove('miniMap')
-                                .remove('typeSelector');
-
-                        myMap.geoObjects
-                                .add(myPlacemark1)
-                                .add(myPlacemark2);
-
-                        myMap.behaviors.disable('scrollZoom');
-                        myMap.behaviors.disable('drag');
+                        marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                        });*/
                     }
+
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXUByU9LKHhMYXtw-oSrYUXtrVu8Widzs&callback=initialize">
                 </script>
                 <div class="addresses">
                     <div class="address-cont">
