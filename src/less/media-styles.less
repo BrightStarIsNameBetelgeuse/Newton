@@ -7,12 +7,35 @@
 }
 
 @media screen and (max-width: 1400px) {
+  body {
+    font-size: 12px;
+  }
   .giant-text {
     font-size: 6em;
   }
   h1 {
     font-size: 60px;
   }
+
+  .vertical-text {
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
+
+  .newton__menu {
+    &.open {
+      width: 230px;
+    }
+  }
+
+  .newton__menu-submenu {
+    width: 320px;
+    right: -320px;
+    &.open {
+      right: 230px;
+    }
+  }
+
   .newton__menu .newton__menu-box {
     padding: 20px 18px;
   }
@@ -30,15 +53,34 @@
   .newton__menu .discount-menu-block {
     margin-top: 0;
   }
-  .vertical-text {
-    font-size: 0.9em;
-    line-height: 1.2em;
-  }
   .newton__menu .discount-menu-block .vertical-text {
     padding: 10px 8px;
   }
-  .media-block .media-block__video, .media-block .media-block__photo {
-    width: 380px;
-    height: 230px;
+
+  .newton__menu .action-block-inner-rel {
+    padding-top: 17%;
+  }
+
+  .newton__content .newton__item.title, .newton__content .newton__item.advantages {
+    padding-left: 13vw;
+  }
+
+  .red-slider {
+    width: 7%;
+  }
+
+  .addresses {
+    margin-left: 3vw;
+  }
+
+  .address-cont {
+    width: auto;
+    max-width: 515px;
+  }
+
+  .address-block {
+    padding: 22px 0;
+    padding-left: 7%;
+    padding-right: 14%;
   }
 }

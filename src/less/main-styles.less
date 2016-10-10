@@ -1,6 +1,8 @@
 @logo-height: 58px;
 @red: #d60447;
 @gray: #cdcbcb;
+@transition-el: all;
+@gen-transition: @transition-el 0.3s ease-out;
 
 * {
   box-sizing: border-box;
@@ -32,11 +34,12 @@ html, body {
 body {
   font-size: 14px;
   line-height: 1.45em;
-  font-family: "Chift", sans-serif;
+  font-family: "dgpro", sans-serif;
   font-weight: 400;
 }
 
 h1 {
+  font-family: "Chift", sans-serif;
   margin: 0;
   font-weight: 200;
   font-size: 82px;
@@ -45,10 +48,12 @@ h1 {
 }
 
 h3 {
+  font-family: "Chift", sans-serif;
   margin: 0;
   font-size: 1.3em;
   margin-bottom: 0.6em;
 }
+
 
 p {
   margin: 0;
@@ -59,9 +64,11 @@ p {
   line-height: 0.84em;
   font-weight: 200;
   margin-bottom: 0.32em;
+  opacity: 0;
 }
 
 .vertical-text {
+  font-family: "Chift", sans-serif;
   font-size: 1.2em;
   span {
     display: block;
@@ -78,45 +85,62 @@ p {
   }
 }
 
-.media-block {
+.newton__vertical-text-block {
   position: relative;
-  display: flex;
+
   .vertical-text {
     position: absolute;
-    top: 0;
+    top: 27px;
     left: 0;
-    padding-top: 27px;
   }
+  .newton__vertical-text-block--cont {
+    margin-left: 35px;
+    display: inline-block;
+  }
+}
+
+.media-block {
   .media-block__video,
   .media-block__photo {
-    width: 460px;
-    height: 285px;
-    margin-left: 35px;
-    cursor: pointer;
-    background: no-repeat;
-    background-size: cover;
-  }
-  .media-block__video {
     position: relative;
-    &::after {
+    max-height: 285px;
+    height: 32vh;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #260e06;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .media-block__photo {
+
+    &::before, &::after {
       content: '';
       position: absolute;
-      width: 150px;
-      height: 150px;
-      width: 46%;
-      height: 75%;
+      top: 0;
+      height: 100%;
+    }
+  }
+
+  .media-block__video {
+    &::after {
+      content: '';
+      display: block;
+      width: 26vh;
+      height: 26vh;
+      position: absolute;
       top: 50%;
       left: 50%;
-      margin-top: -75px;
-      margin-left: -75px;
-      margin-top: -23.5%;
-      margin-left: -23.5%;
+      margin-top: -12vh;
+      margin-left: -13vh;
       background-image: url(../img/ico_play.png);
       background-size: cover;
     }
-  }
-  .media-block__photo {
-    background-size: cover;
   }
 }
 
@@ -146,6 +170,7 @@ p {
     color: @gray;
     font-size: 7.2em;
     z-index: -1;
+    font-family: "Chift", sans-serif;
     &.red {
       color: @red;
       transform: rotate(90deg);
@@ -177,11 +202,14 @@ p {
   display: inline-block;
   border: 4px solid @red;
   padding: 6px 20px;
+  padding: 3px 20px;
   cursor: pointer;
   text-decoration: none;
   color: @red;
   font-size: 12px;
   margin-top: 18px;
+  font-family: "Chift", sans-serif;
+  font-weight: bold;
   &:hover {
     text-decoration: none;
     color: @red;
@@ -190,6 +218,19 @@ p {
     border-color: @gray;
     color: gray;
   }
+}
+
+.btn-play {
+  display: block;
+  width: 26vh;
+  height: 26vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -12vh;
+  margin-left: -13vh;
+  background-image: url(../img/ico_play.png);
+  background-size: cover;
 }
 
 .newton__container {
@@ -205,13 +246,15 @@ p {
 
 .newton__menu {
   position: fixed;
+  font-family: "Chift", sans-serif;
   top: 0;
   right: 0;
   width: 85px;
   height: 100%;
   z-index: 1000;
   background-color: white;
-  transition: width 0.3s ease-out;
+  @transition-el: width;
+  transition: @gen-transition;
 
   .newton__menu-box {
     height: 100%;
@@ -223,6 +266,7 @@ p {
     margin-top: 35px;
     padding-left: 8px;
     display: block;
+    overflow: hidden;
     .newton__menu-list-item {
       display: block;
       padding: 26px 0;
@@ -252,19 +296,15 @@ p {
     }
   }
 
-  .menu__vertical-text {
-    //transition: all 1s ease-out;
-  }
-
   .discount-menu-block {
-    width: 100%;
-    text-align: center;
-    color: @gray;
-    margin-top: 45px;
     display: flex;
+    justify-content: center;
     align-items: stretch;
     position: relative;
     cursor: pointer;
+    width: 100%;
+    color: @gray;
+    margin-top: 45px;
     .vertical-text {
       display: inline-block;
       padding: 15px 10px;
@@ -321,13 +361,16 @@ p {
     position: absolute;
     top: -17px;
     left: -30px;
+    top: -47%;
+    left: -22%;
     background-color: #260e06;
     padding: 15px 18px;
-    width: 140px;
-    height: 120px;
+    max-width: 140px;
+    max-height: 120px;
+    width: 8vw;
+    height: 8vw;
+    font-size: 1.3em;
     p {
-      font-size: 1.4em;
-      line-height: 1.1em;
       position: relative;
     }
     .arrow {
@@ -432,20 +475,17 @@ p {
   }
 
   .submenu-img {
+    display: block;
+    width: 100%;
     margin-top: 17%;
     margin-bottom: 38px;
-    display: block;
   }
 
   .submenu-text {
-    padding-left: 40px;
     margin-left: 20px;
-    position: relative;
   }
 
   .vertical-text {
-    position: absolute;
-    left: 0;
     color: @gray;
   }
   h3 {
@@ -460,7 +500,6 @@ p {
       padding-left: 20px;
       padding-right: 20px;
     }
-
   }
 }
 
@@ -471,12 +510,12 @@ p {
   right: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  background-color: rgba(0,0,0,0);
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0);
   transition: all 0.8s ease-out;
 
   &.open {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 1;
   }
 }
@@ -510,36 +549,52 @@ p {
 
 .newton__header {
   width: 100%;
-  height: 67.5vh;
-  height: 655px;
+  max-height: 655px;
+  height: 70vh;
   padding-left: 20px;
   position: relative;
+  overflow: hidden;
 
   .newton__header-image {
     width: 100%;
     height: 100%;
     background: url(../img/header.png) no-repeat;
     background-size: cover;
+    background-color: #260e06;
+    transform: translateY(100%);
+    opacity: 0;
   }
 
   .newton__logo-box {
+    display: inline-block;
     @width: 407px;
-    //@width: 21vw;
+    @width: 21vw;
     @height: 145px;
-    //@height: 15vh;
+    @height: 15vh;
     @border-width: 10px;
     position: absolute;
-    top: 13vh;
     top: 125px;
+    top: 11.5vh;
     left: 50%;
     margin-left: -212px;
+    margin-left: -10.5vw;
     border: @border-width solid rgba(255, 255, 255, 0.3);
     width: @width;
     height: @height;
+    text-align: center;
 
     .newton__logo {
-      margin: 0 auto;
-      margin-top: (@height - 2*@border-width - @logo-height)/2;
+      max-height: 58px;
+      background-repeat: no-repeat;
+      max-width: 245px;
+      width: 13vw;
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 50%;
+      margin-left: -6.5vw;
+      background-position: center;
     }
   }
 
@@ -548,8 +603,8 @@ p {
 .newton__content {
   width: 100%;
   height: auto;
-  margin-top: -16vh;
-  margin-top: -155px;
+  margin-top: -15vh;
+  //margin-top: -155px;
   .newton__item {
     position: relative;
     margin-right: 85px;
@@ -562,8 +617,9 @@ p {
 
     &.title, &.advantages {
       padding-left: 17vw;
-      padding-left: 327px;
+      //padding-left: 327px;
       margin-bottom: 175px;
+      margin-bottom: 16vh;
     }
     &.title {
       display: flex;
@@ -579,15 +635,18 @@ p {
       }
       .right-part {
         margin-left: 27px;
-      }
-      h1 {
-
+        .newton__vertical-text-block--cont {
+          overflow: hidden;
+        }
+        img {
+          transform: translateX(-100%);
+        }
       }
     }
 
     &.advantages {
       position: relative;
-      height: 870px;
+      height: 100vh;
       background-image: url(../img/adv_pole.png);
       //background-size: 100%;
       background-repeat: no-repeat;
@@ -611,7 +670,8 @@ p {
       .advantages-icon-block {
         position: absolute;
         text-align: center;
-        width: 242px;
+        max-width: 242px;
+        width: 12.5vw;
         .text-block {
           position: absolute;
           padding-top: 22px;
@@ -621,27 +681,35 @@ p {
         }
         &.quantity {
           left: 336px;
+          left: 17.5vw;
           bottom: 100px;
+          bottom: 9.26vh;
           .advantages-icon {
             background-image: url(../img/ico_kachestvo+.png);
           }
         }
         &.safety {
           left: 817px;
+          left: 42.5vw;
           bottom: 220px;
+          bottom: 20.4vh;
           .advantages-icon {
             background-image: url(../img/ico_bezopasnost+.png);
           }
         }
         &.standart {
           right: 534px;
+          right: 28vw;
           top: 168px;
+          top: 15.5vh;
           .advantages-icon {
             background-image: url(../img/ico_standart+.png);
           }
         }
         &.plans {
           right: 176px;
+          right: 176px;
+          bottom: 102px;
           bottom: 102px;
           .advantages-icon {
             background-image: url(../img/ico_planerovki+.png);
@@ -649,7 +717,9 @@ p {
         }
         &.builder {
           right: 56px;
+          right: 9.2vw;
           top: 48px;
+          top: 4.4vh;
           .advantages-icon {
             background-image: url(../img/ico_zactroishik+.png);
           }
@@ -661,8 +731,10 @@ p {
         }
       }
       .advantages-icon {
-        width: 242px;
-        height: 242px;
+        max-width: 242px;
+        max-height: 242px;
+        width: 12.5vw;
+        height: 12.5vw;
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -673,11 +745,60 @@ p {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      & > div {
+
+      .gallery-item {
         width: 33.3%;
+        &:last-child,
+        &:nth-last-child(2) {
+          width: 40%;
+        }
+
+        &.description-block {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-bottom: 35px;
+
+          h1{
+            margin-bottom: 0;
+          }
+        }
+
+        &:nth-child(3n+1) {
+          .addition-block {
+            transform: translateX(100%);
+          }
+        }
+        &:nth-child(3n+2) {
+          .addition-block {
+            transform: translateX(-100%);
+          }
+        }
+
+        .addition-block {
+          font-family: dgpro;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #f7f7f7;
+          justify-content: center;
+          align-items: center;
+          display: none;
+          padding: 10px 13%;
+          z-index: 10;
+        }
+        &:hover {
+          .addition-block {
+            display: flex;
+          }
+        }
       }
+
       .media-block {
-        margin-bottom: 37px;
+        margin-bottom: 35px;
+        margin-right: 25px;
       }
       .description-block {
         width: 25%;
@@ -693,6 +814,7 @@ p {
       justify-content: center;
       .newton-btn {
         margin: 0;
+        font-weight: normal;
       }
     }
   }
@@ -703,6 +825,8 @@ p {
 .addresses {
   margin-top: -21%;
   margin-left: 15%;
+  margin-left: 12vw;
+  margin-top: -55vh;
 }
 
 .address-cont {
@@ -710,21 +834,6 @@ p {
   position: relative;
   width: 515px;
   margin-bottom: 33px;
-
-  &.active {
-    .address-block {
-      background-color: @red;
-      color: white;
-      .newton-btn {
-        background-color: transparent;
-        color: white;
-        border-color: white;
-      }
-      .left-text {
-        color: #260e06;
-      }
-    }
-  }
 
   .newton-btn {
     padding: 3px 35px;
@@ -742,12 +851,16 @@ p {
   display: inline-block;
   color: black;
   background-color: white;
-  font-size: 14.5px;
+  font-size: 1em;
   line-height: 21px;
   margin-left: 35px;
   padding: 37px 0;
   padding-left: 13%;
-  width: 480px;
+  max-width: 480px;
+  padding-right: 24%;
+  transition: @gen-transition;
+  cursor: pointer;
+  font-family: "dgpro";
 
   .left-text {
     text-align: right;
@@ -772,6 +885,7 @@ p {
   .newton-btn {
     margin-top: 20px;
     margin-left: 70px;
+    transition: @gen-transition;
   }
 
   .text-group {
@@ -781,11 +895,26 @@ p {
       margin: 0;
     }
   }
+
+  &.active {
+     background-color: @red;
+     color: white;
+     .newton-btn {
+       background-color: transparent;
+       color: white;
+       border-color: white;
+     }
+     .left-text {
+       color: #260e06;
+     }
+   }
 }
 
 .footer-list {
   display: flex;
   align-items: center;
+  font-family: "Chift", sans-serif;
+  font-weight: 200;
   .list-item {
     font-size: 1.4em;
     padding: 0 30px;
@@ -801,9 +930,6 @@ p {
         display: none;
       }
     }
-    &:last-child {
-      //padding-right: 0;
-    }
   }
 }
 
@@ -811,11 +937,151 @@ p {
   display: inline-block;
   color: @red;
   margin-top: 10px;
+  font-family: "Chift", sans-serif;
   .smaler {
     font-size: 0.8em;
   }
 }
 
-@viewport {
-  width: 1920px;
+.ip-header {
+  position: fixed;
+  top: 0;
+  z-index: 1001;
+  min-height: 480px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.ip-loader {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: default;
+  pointer-events: none;
+}
+
+.ip-loader {
+  bottom: 20%;
+}
+
+.ip-header .ip-inner {
+  display: block;
+  margin: 0 auto;
+}
+
+.ip-header .ip-logo svg {
+  min-width: 320px;
+  max-width: 480px;
+  width: 25%;
+}
+
+.ip-header .ip-logo svg path {
+  fill: #ef6e7e;
+}
+
+.ip-header .ip-loader svg path {
+  fill: none;
+  stroke-width: 6;
+}
+
+.ip-header .ip-loader svg path.ip-loader-circlebg {
+  stroke: #ddd;
+}
+
+.ip-header .ip-loader svg path.ip-loader-circle {
+  transition: stroke-dashoffset 0.2s;
+  stroke: #ef6e7e;
+}
+
+/* Animations */
+
+/* Initial animation of header elements */
+.loading .ip-loader {
+  opacity: 1;
+  animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;
+  animation-delay: 0.2s;
+}
+
+@keyframes animInitialHeader {
+  from { opacity: 0;  transform: translate3d(0,800px,0); }
+}
+
+/* Header elements when loading finishes */
+.loaded .ip-loader {
+  opacity: 1;
+}
+
+.loaded {
+  .newton__header-image {
+    animation: fadeDown 2s ease-in-out 0.5s forwards;
+  }
+  .giant-text {
+    animation: fadeDown 2s ease-in-out 1s forwards;
+  }
+  .right-part .newton__vertical-text-block img {
+    animation: fadeLeft 1.5s ease-in-out 1.3s forwards;
+  }
+}
+
+.loaded .ip-loader {
+  animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animLoadedLoader {
+  to { opacity: 0; transform: translate3d(0,-100%,0) /*scale3d(0.3,0.3,1)*/; }
+}
+
+/* Change the color of the logo */
+.loaded .ip-logo svg path {
+  transition: all 0.5s ease 0.3s;
+  fill: #fff;
+}
+
+/* Header animation when loading finishes */
+.loaded .ip-header {
+  animation: animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animLoadedHeader {
+  to {
+    //transform: translate3d(0,-100%,0);
+    opacity: 0;
+    z-index: -999;
+  }
+}
+
+/*animation for images*/
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes imageLoaded {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
