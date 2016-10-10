@@ -220,6 +220,7 @@
                 <div id="map" style="width: 100%; max-height: 800px; height: 90vh"></div>
                 <script>
                     var map;
+                    var markers = [];
                     function initialize() {
 
 
@@ -247,13 +248,13 @@
                             zoom: 14,
                             center: {lat: 55.17872412595775, lng: 61.29276521742152},
                             disableDefaultUI: true,
+                            scrollwheel: false,
                             mapTypeControlOptions: {
                                 mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
                             }
                         });
                         map.mapTypes.set(customMapTypeId, customMapType);
                         map.setMapTypeId(customMapTypeId);
-                        var image = '/c/img/marker.png';
 
                         var iconBase = 'img/maps/';
                         var icons = {
@@ -271,6 +272,7 @@
                                 icon: icons[feature.type].icon,
                                 map: map
                             });
+                            markers.push(marker);
                         }
 
                         var features = [
@@ -286,16 +288,6 @@
                         for (var i = 0, feature; feature = features[i]; i++) {
                             addMarker(feature);
                         }
-
-
-                        /*var marker = new google.maps.Marker({
-                            map: map, position: {lat: 55.15415, lng: 61.3945},
-                            icon: image,
-                            title: 'Sitko.ru'
-                        });
-                        marker.addListener('click', function() {
-                            infowindow.open(map, marker);
-                        });*/
                     }
 
                 </script>

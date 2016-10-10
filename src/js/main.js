@@ -4,22 +4,100 @@ function Addresses() {
     var addr1Click = true;
     var addr2Click = false;
     var that = this;
+    this.centerlat = 55.17872412595775;
+    this.centerLng = 61.29276521742152;
+
+    var addr1 = {
+        lat: 55.1925709,
+        lng: 61.2842103
+    };
+
+    var addr2 = {
+        lat: 55.16947795784424,
+        lng: 61.282204270845675
+    };
+
+
+    // Sets the map on all markers in the array.
+    function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
+    }
+
+// Removes the markers from the map, but keeps them in the array.
+    function clearMarkers() {
+        setMapOnAll(null);
+    }
+
+// Shows any markers currently in the array.
+    function showMarkers() {
+        setMapOnAll(map);
+    }
+
+// Deletes all markers in the array by removing references to them.
+    function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+    }
 
     this.init = function () {
         $(that.addr1).on('click mouseover', function(){
-            $(this).addClass('active');
-            $(that.addr2).removeClass('active');
-            addr1Click = true;
-            addr2Click = false;
-            myMap.panTo([55.16920006333557,61.28235516918946], {flying: 1});
+            if(!$(this).hasClass('active')) {
+                $(this).addClass('active');
+                $(that.addr2).removeClass('active');
+                addr1Click = true;
+                addr2Click = false;
+
+                map.setCenter({
+                    lat: addr1.lat,
+                    lng: addr1.lng
+                });
+                map.setZoom(13);
+                var latLng = new google.maps.LatLng(addr1.lat, addr1.lng); //Makes a latlng
+                map.panTo(latLng);
+                map.setZoom(16);
+                deleteMarkers()
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(addr1.lat, addr1.lng),
+                    icon: 'img/maps/ico_geo_act.png',
+                    map: map
+                });
+
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(addr2.lat, addr2.lng),
+                    icon: 'img/maps/ico_geo_inact.png',
+                    map: map
+                });
+            }
         });
 
         $(that.addr2).on('click mouseover', function(){
-            $(this).addClass('active');
-            $(that.addr1).removeClass('active');
-            addr2Click = true;
-            addr1Click = false;
-            myMap.panTo([55.19253014229876,61.28338513745119],{flying: 1});
+            if(!$(this).hasClass('active')) {
+                $(this).addClass('active');
+                $(that.addr1).removeClass('active');
+                addr2Click = true;
+                addr1Click = false;
+                map.setCenter({
+                    lat: addr2.lat,
+                    lng: addr2.lng
+                });
+                map.setZoom(13);
+                var latLng = new google.maps.LatLng(addr2.lat, addr2.lng); //Makes a latlng
+                map.panTo(latLng);
+                deleteMarkers()
+                map.setZoom(16);
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(addr2.lat, addr2.lng),
+                    icon: 'img/maps/ico_geo_act.png',
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(addr1.lat, addr1.lng),
+                    icon: 'img/maps/ico_geo_inact.png',
+                    map: map
+                });
+            }
         });
 
         $(that.addr2).on('click', function(){

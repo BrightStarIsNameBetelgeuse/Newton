@@ -133,6 +133,8 @@ p {
       display: block;
       width: 26vh;
       height: 26vh;
+      max-width: 215px;
+      max-height: 214px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -647,6 +649,7 @@ p {
     &.advantages {
       position: relative;
       height: 100vh;
+      max-height: 800px;
       background-image: url(../img/adv_pole.png);
       //background-size: 100%;
       background-repeat: no-repeat;
@@ -766,12 +769,12 @@ p {
 
         &:nth-child(3n+1) {
           .addition-block {
-            transform: translateX(100%);
+            //transform: translateX(100%);
           }
         }
         &:nth-child(3n+2) {
           .addition-block {
-            transform: translateX(-100%);
+            //transform: translateX(-100%);
           }
         }
 
@@ -1019,6 +1022,9 @@ p {
   }
   .giant-text {
     animation: fadeDown 2s ease-in-out 1s forwards;
+  }
+  .right-part .newton__vertical-text-block--cont {
+
   }
   .right-part .newton__vertical-text-block img {
     animation: fadeLeft 1.5s ease-in-out 1.3s forwards;
