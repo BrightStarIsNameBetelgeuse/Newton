@@ -7,10 +7,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=1920, initial-scale=1">
 
-
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../node_modules/aos/dist/aos.css" />
+
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    <script src="../build/bundle.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/pathLoader.js"></script>
+    <script src="js/main.js"></script>
+    <script src="../node_modules/aos/dist/aos.js"></script>
+    <!--<script src="../build/bundle.js"></script>-->
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -21,7 +28,18 @@
 <!-- Add your site or application content here -->
 
 <div class="newton__container">
-    <div class="newton__main">
+    <div class="newton__main" id="ip-container">
+        <div class="ip-header">
+            <div class="ip-loader">
+                <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+                    <path class="ip-loader-circlebg"
+                          d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"></path>
+                    <path id="ip-loader-circle" class="ip-loader-circle"
+                          d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"
+                          style="stroke-dashoffset: 0; stroke-dasharray: 192.617;"></path>
+                </svg>
+            </div>
+        </div>
         <div class="newton__header">
             <!--<div class="w_layer"></div>-->
             <div class="newton__header-image"></div>
@@ -36,11 +54,13 @@
                         <h1 class="giant-text">Для самых<br> разборчивых<br> жителей</h1>
                     </div>
                     <div class="right-part">
-                        <div class="media-block">
+                        <div class="newton__vertical-text-block media-block">
                             <div class="vertical-text">
                                 <span>O</span><span>N</span>L<span>I</span>N<span>E</span><span>&nbsp;</span><span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
                             </div>
-                            <div class="media-block__video" style="background-image: url(img/1.png)"></div>
+                            <div class="newton__vertical-text-block--cont media-block__video">
+                                <img src="img/1.png"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -129,18 +149,36 @@
                 </div>
             </div>
             <div class="newton__item gallery">
-                <div class="media-block">
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true" data-aos-anchor-placement="top-center">
                     <div class="vertical-text"><span>Н</span><span>Ь</span>Ю<span>Т</span>О<span>Н</span>
                     </div>
-                    <div class="media-block__photo" style="background-image: url(img/1.png)"></div>
+                    <div class="newton__vertical-text-block--cont media-block__photo">
+                        <img src="img/1.png" data-aos="slide-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
+                    </div>
+                    <div class="addition-block">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
+                            tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                            mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
+                            sapien nunc eget.</p>
+                    </div>
                 </div>
-                <div class="media-block">
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"  data-aos-anchor-placement="top-bottom">
                     <div class="vertical-text">
                         <span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
                     </div>
-                    <div class="media-block__video" style="background-image: url(img/2.png)"></div>
+                    <div class="newton__vertical-text-block--cont media-block__video">
+                        <img src="img/2.png"/>
+                    </div>
+                    <div class="addition-block">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
+                            tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                            mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
+                            sapien nunc eget.</p>
+                    </div>
                 </div>
-                <div class="description-block">
+                <div class="description-block gallery-item">
                     <h1>Фотогалерея ньютон</h1>
                     <div class="text-block nomargin">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -148,32 +186,53 @@
                         <a class="newton-btn">Смотреть все фото</a>
                     </div>
                 </div>
-                <div class="media-block">
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"  data-aos-anchor-placement="top-center">
                     <div class="vertical-text">
                         <span>С</span><span>Т</span>Р<span>О</span>Й<span>К</span><span>А</span>
                     </div>
-                    <div class="media-block__photo" style="background-image: url(img/3.png)"></div>
+                    <div class="newton__vertical-text-block--cont media-block__photo">
+                        <img src="img/3.png"/>
+                    </div>
+                    <div class="addition-block">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
+                            tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                            mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
+                            sapien nunc eget.</p>
+                    </div>
                 </div>
-                <div class="media-block">
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"  data-aos-anchor-placement="top-bottom">
                     <div class="vertical-text">
                         <span>И</span><span>Н</span>Т<span>Е</span>Р<span>Ь</span><span>Е</span><span>Р</span><span>Ы</span>
                     </div>
-                    <div class="media-block__photo" style="background-image: url(img/4.png)"></div>
+                    <div class="newton__vertical-text-block--cont media-block__photo">
+                        <img src="img/4.png"/>
+                    </div>
+                    <div class="addition-block">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
+                            tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                            mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
+                            sapien nunc eget.</p>
+                    </div>
                 </div>
             </div>
             <div class="newton__item contacts">
-                <div id="map" style="width: 100%; height: 800px"></div>
+                <div id="map" style="width: 100%; max-height: 800px; height: 90vh"></div>
                 <script type="text/javascript">
                     ymaps.ready(init);
                     var myMap;
 
                     function init() {
                         myMap = new ymaps.Map('map', {
-                            center: [55.177815133547035, 61.305614631780614],
-                            zoom: 14
+                            //center: [55.182266597654916, 61.29917798413087],
+                            center: [55.16920006333557, 61.28235516918946],
+                            zoom: 14,
+                            behaviours: []
                         });
-                        myPlacemark = new ymaps.Placemark([55.19215550354389, 61.28244034589192], {
-                            hintContent: 'Собственный значок метки'
+
+                        var myPlacemark1 = new ymaps.Placemark([55.16920006333557, 61.28235516918946], {
+                            hintContent: 'ЖК Ньютон'
                         }, {
                             // Опции.
                             // Своё изображение иконки метки.
@@ -184,13 +243,41 @@
                             // её "ножки" (точки привязки).
                             iconImageOffset: [-3, -42]
                         });
+
+                        var myPlacemark2 = new ymaps.Placemark([55.19253014229876, 61.28338513745119], {
+                            hintContent: 'СК Легион'
+                        }, {
+                            // Опции.
+                            // Своё изображение иконки метки.
+                            iconImageHref: '/img/ico_geo_inact.png',
+                            // Размеры метки.
+                            iconImageSize: [30, 42],
+                            // Смещение левого верхнего угла иконки относительно
+                            // её "ножки" (точки привязки).
+                            iconImageOffset: [-3, -42]
+                        });
+
+                        myMap.controls
+                                .remove('mapTools')
+                                .remove('scaleLine')
+                                .remove('searchControl')
+                                .remove('trafficControl')
+                                .remove('zoomControl')
+                                .remove('smallZoomControl')
+                                .remove('miniMap')
+                                .remove('typeSelector');
+
+                        myMap.geoObjects
+                                .add(myPlacemark1)
+                                .add(myPlacemark2);
+
+                        myMap.behaviors.disable('scrollZoom');
+                        myMap.behaviors.disable('drag');
                     }
                 </script>
-                <!--<script type="text/javascript" charset="utf-8" async-->
-                <!--src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=0DMbVLy8YSw2sCqTunCqjnBBL2BxTX1i&amp;width=1280&amp;height=720&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>-->
                 <div class="addresses">
-                    <div class="address-cont active">
-                        <div class="address-block">
+                    <div class="address-cont">
+                        <div class="address-block active" id="address1">
                             <p><span class="left-text">Адрес</span><span>Челябинск, ул. 40-летия Победы, 3</span>
                             </p>
                             <div class="text-group">
@@ -216,7 +303,7 @@
                         </div>
                     </div>
                     <div class="address-cont">
-                        <div class="address-block">
+                        <div class="address-block" id="address2">
                             <h3>Отдел продаж СК</h3>
                             <p><span class="left-text">Адрес</span><span>Челябинск, ул. 40-летия Победы, 3</span>
                             </p>
@@ -302,10 +389,9 @@
             </div>
         </div>
         <div class="newton__menu-submenu">
-
             <div class="newton__menu-box">
                 <img class="submenu-img" src="img/submenu-img.png"/>
-                <div class="submenu-text">
+                <div class="newton__vertical-text-block submenu-text">
                     <div class="vertical-text small">
                         <span>а</span>
                         <span>к</span>
@@ -321,7 +407,7 @@
                         <span>л</span>
                         <span>ь</span>
                     </div>
-                    <div class="submenu-text-box">
+                    <div class="newton__vertical-text-block--cont">
                         <h3>5% скидки<br>на двушки</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
