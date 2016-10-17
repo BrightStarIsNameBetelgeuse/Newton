@@ -8,15 +8,23 @@
     <meta name="viewport" content="width=1920, initial-scale=1">
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="../node_modules/aos/dist/aos.css" />
+    <link rel="stylesheet" href="../node_modules/aos/dist/aos.css"/>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/aos/dist/aos.js"></script>
+    <script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
+    <script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+    <script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
+    <script src="js/icons/ico_bezopasnost.js"></script>
+    <script src="js/icons/ico_kachestvo.js"></script>
+    <script src="js/icons/ico_planerovki.js"></script>
+    <script src="js/icons/ico_standart.js"></script>
+    <script src="js/icons/ico_zactroishik.js"></script>
     <script src="js/modernizr.custom.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/pathLoader.js"></script>
     <script src="js/main.js"></script>
-    <script src="../node_modules/aos/dist/aos.js"></script>
-    <!--<script src="../build/bundle.js"></script>-->
+    <!--<script src="../build/js/bundle.js"></script>-->
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -55,7 +63,9 @@
                     <div class="right-part">
                         <div class="newton__vertical-text-block media-block">
                             <div class="vertical-text">
-                                <span>O</span><span>N</span>L<span>I</span>N<span>E</span><span>&nbsp;</span><span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
+                                <div class="text-cont">
+                                    <span>O</span><span>N</span>L<span>I</span>N<span>E</span><span>&nbsp;</span><span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
+                                </div>
                             </div>
                             <div class="newton__vertical-text-block--cont media-block__video">
                                 <img src="img/1.png"/>
@@ -97,7 +107,8 @@
 
                 </div>
                 <div class="advantages-icon-block quantity">
-                    <div class="advantages-icon"></div>
+                    <!--<div class="advantages-icon"></div>-->
+                    <canvas id="canvas_kach" width="350" height="350"></canvas>
                     <div class="text-block">
                         <h3>Качество домов</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -105,7 +116,8 @@
                     </div>
                 </div>
                 <div class="advantages-icon-block safety">
-                    <div class="advantages-icon"></div>
+                    <!--<div class="advantages-icon"></div>-->
+                    <canvas id="canvas_bez" width="350" height="350"></canvas>
                     <div class="text-block">
                         <h3>Безопасность</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -113,7 +125,8 @@
                     </div>
                 </div>
                 <div class="advantages-icon-block standart">
-                    <div class="advantages-icon"></div>
+                    <!--<div class="advantages-icon"></div>-->
+                    <canvas id="canvas_stand" width="350" height="350"></canvas>
                     <div class="text-block">
                         <h3>Новые стандарты<br>комфорта</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -121,7 +134,8 @@
                     </div>
                 </div>
                 <div class="advantages-icon-block builder">
-                    <div class="advantages-icon"></div>
+                    <!--<div class="advantages-icon"></div>-->
+                    <canvas id="canvas_zas" width="350" height="350"></canvas>
                     <div class="text-block">
                         <h3>Надёжный застройщик</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -129,7 +143,8 @@
                     </div>
                 </div>
                 <div class="advantages-icon-block plans">
-                    <div class="advantages-icon"></div>
+                    <!--<div class="advantages-icon"></div>-->
+                    <canvas id="canvas_plan" width="350" height="350"></canvas>
                     <div class="text-block">
                         <h3>Широкий выбор<br>планировок</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
@@ -148,33 +163,41 @@
                 </div>
             </div>
             <div class="newton__item gallery">
-                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="400" data-aos-once="true">
-                    <div class="vertical-text"><span>Н</span><span>Ь</span>Ю<span>Т</span>О<span>Н</span>
-                    </div>
-                    <div class="newton__vertical-text-block--cont media-block__photo">
-                        <img src="img/1.png" data-aos="slide-right" data-aos-offset="250" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
-                        <div class="addition-block">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-                                Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
-                                tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
-                                sapien nunc eget.</p>
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in"
+                     data-aos-delay="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true" data-aos-anchor-placement="center-bottom">
+                    <div class="vertical-text">
+                        <div class="text-cont">
+                            <span>Н</span><span>Ь</span>Ю<span>Т</span>О<span>Н</span>
                         </div>
                     </div>
+                    <div class="newton__vertical-text-block--cont media-block__photo">
+                        <img src="img/1.png" data-aos="slide-right" data-aos-delay="200" data-aos-easing="ease-in-sine" data-aos-anchor-placement="center-bottom"
+                             data-aos-duration="600" data-aos-once="true"/>
+                    </div>
+                    <div class="addition-block">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
+                            tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                            mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
+                            sapien nunc eget.</p>
+                    </div>
                 </div>
-                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-anchor-placement="center-bottom"
+                     data-aos-delay="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
                     <div class="vertical-text">
-                        <span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
+                        <div class="text-cont">
+                            <span>V</span><span>I</span><span>D</span><span>E</span><span>O</span>
+                        </div>
                     </div>
                     <div class="newton__vertical-text-block--cont media-block__video">
                         <img src="img/2.png" data-aos="slide-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
-                        <div class="addition-block">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-                                Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
-                                tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
-                                sapien nunc eget.</p>
-                        </div>
+                    </div>
+                    <div class="addition-block">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
+                            tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                            mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
+                            sapien nunc eget.</p>
                     </div>
                 </div>
                 <div class="description-block gallery-item">
@@ -185,39 +208,45 @@
                         <a class="newton-btn">Смотреть все фото</a>
                     </div>
                 </div>
-                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-anchor-placement="center-bottom"
+                     data-aos-delay="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
                     <div class="vertical-text">
-                        <span>С</span><span>Т</span>Р<span>О</span>Й<span>К</span><span>А</span>
-                    </div>
-                    <div class="newton__vertical-text-block--cont media-block__photo">
-                        <img src="img/3.png" data-aos="slide-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
-                        <div class="addition-block">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-                                Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
-                                tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
-                                sapien nunc eget.</p>
+                        <div class="text-cont">
+                            <span>С</span><span>Т</span>Р<span>О</span>Й<span>К</span><span>А</span>
                         </div>
                     </div>
+                    <div class="newton__vertical-text-block--cont media-block__photo">
+                        <img src="img/3.png" data-aos="slide-right" data-aos-delay="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true" data-aos-anchor-placement="center-bottom"/>
+                    </div>
+                    <div class="addition-block">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
+                            tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                            mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
+                            sapien nunc eget.</p>
+                    </div>
                 </div>
-                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
+                <div class="newton__vertical-text-block media-block gallery-item" data-aos="fade-zoom-in"
+                     data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true">
                     <div class="vertical-text">
-                        <span>И</span><span>Н</span>Т<span>Е</span>Р<span>Ь</span><span>Е</span><span>Р</span><span>Ы</span>
+                        <div class="text-cont">
+                            <span>И</span><span>Н</span>Т<span>Е</span>Р<span>Ь</span><span>Е</span><span>Р</span><span>Ы</span>
+                        </div>
                     </div>
                     <div class="newton__vertical-text-block--cont media-block__photo">
                         <img src="img/4.png" data-aos="slide-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-once="true"/>
-                        <div class="addition-block">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-                                Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
-                                tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
-                                sapien nunc eget.</p>
-                        </div>
+                    </div>
+                    <div class="addition-block">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                            Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar
+                            tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                            mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus
+                            sapien nunc eget.</p>
                     </div>
                 </div>
             </div>
             <div class="newton__item contacts">
-                <div id="map" style="width: 100%; max-height: 800px; height: 90vh"></div>
+                <div id="map" style="width: 100%; max-height: 800px; height: 90vh" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="1000" data-aos-anchor-placement="center-bottom" data-aos="fade-right" data-aos-once="true"></div>
                 <script>
                     var map;
                     var markers = [];
@@ -295,7 +324,7 @@
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXUByU9LKHhMYXtw-oSrYUXtrVu8Widzs&callback=initialize">
                 </script>
                 <div class="addresses">
-                    <div class="address-cont">
+                    <div class="address-cont" data-aos="zoom-in" data-aos-once="true">
                         <div class="address-block active" id="address1">
                             <p><span class="left-text">Адрес</span><span>Челябинск, ул. 40-летия Победы, 3</span>
                             </p>
@@ -310,18 +339,20 @@
                             <a class="newton-btn">Больше о ЖК «НЬЮТОН»</a>
                         </div>
                         <div class="vertical-text">
-                            <span>Ж</span>
-                            <span>К</span>
-                            <span>&nbsp;</span>
-                            <span>Н</span>
-                            <span>Ь</span>
-                            <span>Ю</span>
-                            <span>Т</span>
-                            <span>О</span>
-                            <span>Н</span>
+                            <div class="text-cont">
+                                <span>Ж</span>
+                                <span>К</span>
+                                <span>&nbsp;</span>
+                                <span>Н</span>
+                                <span>Ь</span>
+                                <span>Ю</span>
+                                <span>Т</span>
+                                <span>О</span>
+                                <span>Н</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="address-cont">
+                    <div class="address-cont" data-aos="zoom-in" data-aos-once="true">
                         <div class="address-block" id="address2">
                             <h3>Отдел продаж СК</h3>
                             <p><span class="left-text">Адрес</span><span>Челябинск, ул. 40-летия Победы, 3</span>
@@ -337,15 +368,17 @@
                             <a class="newton-btn">Больше о застройщике</a>
                         </div>
                         <div class="vertical-text">
-                            <span>С</span>
-                            <span>К</span>
-                            <span>&nbsp;</span>
-                            <span>Л</span>
-                            <span>Е</span>
-                            <span>Г</span>
-                            <span>И</span>
-                            <span>О</span>
-                            <span>Н</span>
+                            <div class="text-cont">
+                                <span>С</span>
+                                <span>К</span>
+                                <span>&nbsp;</span>
+                                <span>Л</span>
+                                <span>Е</span>
+                                <span>Г</span>
+                                <span>И</span>
+                                <span>О</span>
+                                <span>Н</span>
+                            </div>
                         </div>
                     </div>
                 </div>
